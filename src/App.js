@@ -1,28 +1,11 @@
 import './App.scss';
 import store from './redux/store/store'
-import * as actions from './redux/actionTypes/actionTypes'
+import { bugAdded, bugRemoved } from './redux/actions/actions'
+
 
 function App() {
 
-  const unsubscribe = store.subscribe(() => {
-    console.log("Store changed!", store.getState());
-  })
-
-  store.dispatch({
-    type: actions.BUG_ADDED,
-    payload: {
-      description: "Bug1"
-    }
-  })
-
-  unsubscribe();
-
-  store.dispatch({
-    type: actions.BUG_REMOVED,
-    payload: {
-      id: 1
-    }
-  })
+  store.dispatch(bugAdded("bug 1"))
 
   console.log(store.getState())
 
