@@ -2,6 +2,10 @@ import './App.scss';
 import store from './redux/store/customStore'
 import * as actions from './redux/actions/actions'
 
+store.subscribe(() => {
+  console.log("Store Changed!")
+});
+
 store.dispatch(actions.bugAdded("Bug 1"))
 console.log(store.getState())
 
