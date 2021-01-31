@@ -1,8 +1,13 @@
+// -- You can import the action types as per below
+// -- import { BUG_ADDED, BUG_REMOVED } from "../actionTypes/actionTypes"
+// -- Or you can import them as actions.
+import * as actions from '../actionTypes/actionTypes'
+
 let lastID = 0
 
-function reducer (state = [], action) {
+const reducer = (state = [], action) => {
     switch (action.type) {
-        case "bugAdded":
+        case actions.BUG_ADDED:
             return [
                 ...state,
                 {
@@ -12,10 +17,12 @@ function reducer (state = [], action) {
                 }
             ];
 
-        case "bugRemoved":
+        case actions.BUG_REMOVED:
             return state.filter(bug => bug.id !== action.payload.id)
 
         default:
             return state
     }
 }
+
+export  default reducer;
