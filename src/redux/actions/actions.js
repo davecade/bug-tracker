@@ -1,9 +1,9 @@
-import * as actions from './redux/actionTypes/actionTypes'
+import * as actions from '../actionTypes/actionTypes';
  
  export const bugAdded = description => ({
         type: actions.BUG_ADDED,
         payload: {
-          description: "Bug1"
+          description: description
         }
 })
 
@@ -11,6 +11,13 @@ import * as actions from './redux/actionTypes/actionTypes'
 export const bugRemoved = id => ({
     type: actions.BUG_REMOVED,
     payload: {
-      id: 1
+      id: id
+    }
+})
+
+export const bugResolved = id => ({
+    type: actions.BUG_RESOLVED,
+    payload: {
+      id: id
     }
 })
